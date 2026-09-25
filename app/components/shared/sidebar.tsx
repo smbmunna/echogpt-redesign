@@ -4,6 +4,7 @@ import { useState } from "react";
 import TopHeader from "../sidebar/TopHeader";
 import NewChatBtn from "../sidebar/NewChatBtn";
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import SidebarFooter from "../sidebar/SidebarFooter";
 
 // Define the conversation type
 export interface Conversation {
@@ -79,7 +80,10 @@ export default function Sidebar({
       </div>
 
       {/* New Chat Button */}
-      {/* <NewChatBtn onNewChat={onNewChat} isCollapsed={isCollapsed} /> */}
+      <NewChatBtn onNewChat={onNewChat} isCollapsed={isCollapsed} />
+
+      {/* Footer */}
+      <SidebarFooter isCollapsed={isCollapsed} userName={userName} userEmail={userEmail}/>
     </aside>
   );
 }
