@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import TopHeader from "../sidebar/TopHeader";
+import NewChatBtn from "../sidebar/NewChatBtn";
 
 // Define the conversation type
 export interface Conversation {
@@ -15,6 +16,7 @@ interface SidebarProps {
   activeId?: string;
   userName?: string;
   userEmail?: string;
+  onNewChat?: () => void;
 }
 
 const DEFAULT_CONVERSATIONS: Conversation[] = [
@@ -34,6 +36,7 @@ const DEFAULT_CONVERSATIONS: Conversation[] = [
 ];
 
 export default function Sidebar({
+  onNewChat,
   conversations = DEFAULT_CONVERSATIONS,
   activeId = "1",
   userName = "Munna",
@@ -49,6 +52,9 @@ export default function Sidebar({
     >
       {/* Top Header & Collapse Toggle */}
       <TopHeader />
+
+      {/* New Chat Button */}
+      <NewChatBtn onNewChat={onNewChat} isCollapsed={isCollapsed} />
     </aside>
   );
 }
