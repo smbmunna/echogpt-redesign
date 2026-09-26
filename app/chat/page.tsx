@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Sidebar, { Conversation } from "../components/shared/sidebar";
+import EmptyState from "../components/EmptyState";
+import EmptyChat from "../components/EmptyChat";
 
 export default function Page() {
   const [conversations, setConversations] = useState<Conversation[]>([
@@ -32,6 +34,18 @@ export default function Page() {
     setActiveId(newId);
   };
 
+  const handleSendMessage = (message: string, attachments: File[]) => {
+    const newId = Date.now().toString();
+    const newConv: Conversation = {
+      id: newId,
+      title: message.slice(0, 30) || "New Chat",
+      category: "Today",
+    };
+    setConversations([newConv, ...conversations]);
+    setActiveId(newId);
+    console.log("Message sent:", message, "Files:", attachments);
+  };
+
   return (
     <main className="flex h-screen w-screen overflow-hidden bg-(--background)">
       <Sidebar
@@ -41,13 +55,33 @@ export default function Page() {
         userEmail="smbmunna@gmail.com"
         onNewChat={handleNewChat}
       />
-      <section className="flex-1 flex flex-col items-center justify-center p-6 text-center text-(--foreground)">
+      {/* <section className="flex-1 flex flex-col items-center justify-center p-6 text-center text-(--foreground)">
         <div className="max-w-md space-y-3">
           <h1 className="text-2xl font-bold tracking-tight">
             Whats on your mind today?
           </h1>
           <p className="text-sm text-(--muted)">Your conversation goes here</p>
         </div>
+      </section> */}
+      <section className="flex-1 h-full overflow-hidden flex flex-col">
+        {/* {!activeId ? (
+          <EmptyState
+            userName="Munna"
+            onSendMessage={handleSendMessage}
+          />
+        ) : (
+          <div className="flex-1 flex items-center justify-center text-[var(--muted)] text-sm">
+            Chat screen active for conversation ID: {activeId}
+          </div>
+        )} */}
+        {/* {
+          <EmptyState
+            userName="Munna"
+            onSendMessage={handleSendMessage}
+          />
+        } */}
+
+        <EmptyChat/>
       </section>
     </main>
   );
