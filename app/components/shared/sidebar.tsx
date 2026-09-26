@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import NewChatBtn from "../sidebar/NewChatBtn";
-import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { PanelLeftClose, PanelLeftOpen, Search } from "lucide-react";
 import SidebarFooter from "../sidebar/SidebarFooter";
 import Conversation from "../sidebar/Conversation";
 
@@ -49,6 +49,8 @@ export default function Sidebar({
   onDeleteConversation,
 }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
 
   return (
     <aside
@@ -86,6 +88,22 @@ export default function Sidebar({
       {/* New Chat Button */}
       <NewChatBtn onNewChat={onNewChat} isCollapsed={isCollapsed} />
 
+      {/* Search / Filter  */}
+      {!isCollapsed && (
+        <div className="px-3 pb-2">
+          <div className="relative flex items-center">
+            <Search size={15} className="absolute left-3 text-(--muted)" />
+            <input
+              type="text"
+              placeholder="Search chats..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-(--surface) text-(--foreground) placeholder-(--muted) text-xs rounded-lg pl-9 pr-3 py-2 border border(--border) focus:outline-none focus:border-(--primary) transition-colors"
+            />
+          </div>
+        </div>
+      )}
+
       {/* Conversation History List */}
       <Conversation
         activeId="1"
@@ -93,6 +111,7 @@ export default function Sidebar({
         conversations={DEFAULT_CONVERSATIONS}
         onSelectConversation={onSelectConversation}
         onDeleteConversation={onDeleteConversation}
+        searchQuery={searchQuery}
       />
 
       {/* Footer */}

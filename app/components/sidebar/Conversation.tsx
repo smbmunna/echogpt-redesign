@@ -13,6 +13,7 @@ interface ConversationProps {
   activeId?: string;
   onSelectConversation?: (id: string) => void;
   onDeleteConversation?: (id: string) => void;
+  searchQuery: string; 
 }
 
 const DEFAULT_CONVERSATIONS: Conversation[] = [
@@ -30,9 +31,10 @@ export default function Conversation({
   conversations= DEFAULT_CONVERSATIONS,
   onSelectConversation,
   onDeleteConversation,
+  searchQuery
 }: ConversationProps) {
 
-    const [searchQuery, setSearchQuery] = useState("");
+    //const [searchQuery, setSearchQuery] = useState("");
       const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
 
 
