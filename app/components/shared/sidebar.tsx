@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import TopHeader from "../sidebar/TopHeader";
 import NewChatBtn from "../sidebar/NewChatBtn";
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import SidebarFooter from "../sidebar/SidebarFooter";
+import Conversation from "../sidebar/Conversation";
 
 // Define the conversation type
 export interface Conversation {
@@ -19,6 +19,8 @@ interface SidebarProps {
   userName?: string;
   userEmail?: string;
   onNewChat?: () => void;
+  onSelectConversation?: (id: string) => void;
+  onDeleteConversation?: (id: string) => void;
 }
 
 const DEFAULT_CONVERSATIONS: Conversation[] = [
@@ -43,6 +45,8 @@ export default function Sidebar({
   activeId = "1",
   userName = "Munna",
   userEmail = "smbmunna@gmail.com",
+  onSelectConversation,
+  onDeleteConversation,
 }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -82,8 +86,21 @@ export default function Sidebar({
       {/* New Chat Button */}
       <NewChatBtn onNewChat={onNewChat} isCollapsed={isCollapsed} />
 
+      {/* Conversation History List */}
+      <Conversation
+        activeId="1"
+        isCollapsed={isCollapsed}
+        conversations={DEFAULT_CONVERSATIONS}
+        onSelectConversation={onSelectConversation}
+        onDeleteConversation={onDeleteConversation}
+      />
+
       {/* Footer */}
-      <SidebarFooter isCollapsed={isCollapsed} userName={userName} userEmail={userEmail}/>
+      <SidebarFooter
+        isCollapsed={isCollapsed}
+        userName={userName}
+        userEmail={userEmail}
+      />
     </aside>
   );
 }
