@@ -13,35 +13,23 @@ interface ConversationProps {
   activeId?: string;
   onSelectConversation?: (id: string) => void;
   onDeleteConversation?: (id: string) => void;
-  searchQuery: string; 
+  searchQuery: string;
 }
-
-const DEFAULT_CONVERSATIONS: Conversation[] = [
-  { id: "1", title: "React Server Actions vs API Routes", category: "Today" },
-  { id: "2", title: "Tailwind v4 CSS Variable setup", category: "Today" },
-  { id: "3", title: "Optimizing SQL Stored Procedures", category: "Previous 7 Days" },
-  { id: "4", title: "Fujifilm X-T2 Super Telephoto Lenses", category: "Previous 7 Days" },
-  { id: "5", title: "Next.js App Router Architecture", category: "Older" },
-];
-
-
 export default function Conversation({
   activeId = "1",
   isCollapsed,
-  conversations= DEFAULT_CONVERSATIONS,
+  conversations,
   onSelectConversation,
   onDeleteConversation,
-  searchQuery
+  searchQuery,
 }: ConversationProps) {
+  //const [searchQuery, setSearchQuery] = useState("");
+  const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
 
-    //const [searchQuery, setSearchQuery] = useState("");
-      const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
-
-
-    // Filter conversations based on search query
+  // Filter conversations based on search query
   const filteredConversations = useMemo(() => {
     return conversations.filter((c) =>
-      c.title.toLowerCase().includes(searchQuery.toLowerCase())
+      c.title.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [conversations, searchQuery]);
 

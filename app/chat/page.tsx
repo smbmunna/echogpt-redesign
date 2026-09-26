@@ -12,10 +12,16 @@ export default function Page() {
       title: "Optimizing SQL Stored Procedures",
       category: "Previous 7 Days",
     },
+    {
+      id: "4",
+      title: "Fujifilm X-T2 Super Telephoto Lenses",
+      category: "Previous 7 Days",
+    },
+    { id: "5", title: "Next.js App Router Architecture", category: "Older" },
   ]);
   const [activeId, setActiveId] = useState("1");
 
-    const handleNewChat = () => {
+  const handleNewChat = () => {
     const newId = Date.now().toString();
     const newConv: Conversation = {
       id: newId,

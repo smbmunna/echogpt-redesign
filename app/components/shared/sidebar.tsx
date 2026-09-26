@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import NewChatBtn from "../sidebar/NewChatBtn";
-import { PanelLeftClose, PanelLeftOpen, Search } from "lucide-react";
+import { PanelLeftClose, PanelLeftOpen, Plus, Search } from "lucide-react";
 import SidebarFooter from "../sidebar/SidebarFooter";
 import Conversation from "../sidebar/Conversation";
 
@@ -14,7 +14,7 @@ export interface Conversation {
 }
 
 interface SidebarProps {
-  conversations?: Conversation[];
+  conversations: Conversation[];
   activeId?: string;
   userName?: string;
   userEmail?: string;
@@ -23,25 +23,10 @@ interface SidebarProps {
   onDeleteConversation?: (id: string) => void;
 }
 
-const DEFAULT_CONVERSATIONS: Conversation[] = [
-  { id: "1", title: "React Server Actions vs API Routes", category: "Today" },
-  { id: "2", title: "Tailwind v4 CSS Variable setup", category: "Today" },
-  {
-    id: "3",
-    title: "Optimizing SQL Stored Procedures",
-    category: "Previous 7 Days",
-  },
-  {
-    id: "4",
-    title: "Fujifilm X-T2 Super Telephoto Lenses",
-    category: "Previous 7 Days",
-  },
-  { id: "5", title: "Next.js App Router Architecture", category: "Older" },
-];
 
 export default function Sidebar({
   onNewChat,
-  conversations = DEFAULT_CONVERSATIONS,
+  conversations,
   activeId = "1",
   userName = "Munna",
   userEmail = "smbmunna@gmail.com",
@@ -87,7 +72,7 @@ export default function Sidebar({
 
       {/* New Chat Button */}
       <NewChatBtn onNewChat={onNewChat} isCollapsed={isCollapsed} />
-
+       
       {/* Search / Filter  */}
       {!isCollapsed && (
         <div className="px-3 pb-2">
@@ -108,7 +93,7 @@ export default function Sidebar({
       <Conversation
         activeId="1"
         isCollapsed={isCollapsed}
-        conversations={DEFAULT_CONVERSATIONS}
+        conversations={conversations}
         onSelectConversation={onSelectConversation}
         onDeleteConversation={onDeleteConversation}
         searchQuery={searchQuery}
