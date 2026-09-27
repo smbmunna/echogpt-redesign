@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Sidebar, { Conversation } from "../components/shared/sidebar";
-import EmptyState from "../components/EmptyState";
 import EmptyChat from "../components/EmptyChat";
 
 export default function Page() {
@@ -81,7 +80,7 @@ export default function Page() {
           />
         } */}
 
-        <EmptyChat/>
+        <EmptyChat userName="Munna"/>
       </section>
     </main>
   );
