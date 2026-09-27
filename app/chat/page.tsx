@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Sidebar, { Conversation } from "../components/shared/sidebar";
-import EmptyChat from "../components/EmptyChat";
+import EmptyChat, { AIModel } from "../components/EmptyChat";
+import EmptyState from "../components/EmptyState";
 
 export default function Page() {
   const [conversations, setConversations] = useState<Conversation[]>([
@@ -33,16 +34,24 @@ export default function Page() {
     setActiveId(newId);
   };
 
-  const handleSendMessage = (message: string, attachments: File[]) => {
+  const handleSendMessage = (
+    message: string,
+    attachments: File[],
+    selectedModel: AIModel,
+  ) => {
     const newId = Date.now().toString();
     const newConv: Conversation = {
       id: newId,
       title: message.slice(0, 30) || "New Chat",
       category: "Today",
     };
-    setConversations([newConv, ...conversations]);
+
+    setConversations((prev) => [newConv, ...prev]);
     setActiveId(newId);
-    console.log("Message sent:", message, "Files:", attachments);
+
+    console.log("Message sent:", message);
+    console.log("Attachments:", attachments);
+    console.log("Selected Model:", selectedModel.name, selectedModel.id);
   };
 
   return (
@@ -78,9 +87,9 @@ export default function Page() {
             userName="Munna"
             onSendMessage={handleSendMessage}
           />
-        } */}
+        }  */}
 
-        <EmptyChat userName="Munna"/>
+        <EmptyChat userName="Munna" onSendMessage={handleSendMessage} />
       </section>
     </main>
   );
