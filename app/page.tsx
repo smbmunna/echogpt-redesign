@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "./components/shared/navbar";
 import Hero from "./components/LandingPage/Hero";
 import Mockup from "./components/LandingPage/Mockup";
@@ -9,6 +9,8 @@ import Features from "./components/LandingPage/Features";
 import WhyChooseSection from "./components/LandingPage/WhyChooseSection";
 import Pricing from "./components/LandingPage/Pricing";
 import FAQ from "./components/LandingPage/FAQ";
+import Testimonials from "./components/LandingPage/Testimonials";
+import Footer from "./components/shared/Footer";
 
 export default function LandingPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -44,7 +46,13 @@ export default function LandingPage() {
       <Pricing billingCycle={billingCycle} setBillingCycle={setBillingCycle} />
 
       {/*FAQ*/}
-      <FAQ openFaq={openFaq} setOpenFaq={setOpenFaq} isOpen={openFaq}/>
+      <FAQ openFaq={openFaq} setOpenFaq={setOpenFaq} isOpen={openFaq} />
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
