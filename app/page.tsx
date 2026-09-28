@@ -8,6 +8,7 @@ import AIModels from "./components/LandingPage/AIModels";
 import Features from "./components/LandingPage/Features";
 import WhyChooseSection from "./components/LandingPage/WhyChooseSection";
 import Pricing from "./components/LandingPage/Pricing";
+import FAQ from "./components/LandingPage/FAQ";
 
 export default function LandingPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -17,6 +18,7 @@ export default function LandingPage() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
     "yearly",
   );
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--primary)] selection:text-white font-sans transition-colors duration-200">
@@ -40,6 +42,9 @@ export default function LandingPage() {
 
       {/* Pricing */}
       <Pricing billingCycle={billingCycle} setBillingCycle={setBillingCycle} />
+
+      {/*FAQ*/}
+      <FAQ openFaq={openFaq} setOpenFaq={setOpenFaq} isOpen={openFaq}/>
     </div>
   );
 }
