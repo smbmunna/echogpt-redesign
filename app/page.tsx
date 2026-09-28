@@ -6,6 +6,7 @@ import Hero from "./components/LandingPage/Hero";
 import Mockup from "./components/LandingPage/Mockup";
 import AIModels from "./components/LandingPage/AIModels";
 import Features from "./components/LandingPage/Features";
+import WhyChooseSection from "./components/LandingPage/WhyChooseSection";
 
 export default function LandingPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -28,6 +29,9 @@ export default function LandingPage() {
 
       {/* Features */}
       <Features activeTab={activeTab} setActiveTab={setActiveTab}/>
+
+      {/* Why Choose Us */}
+      <WhyChooseSection/>
     </div>
   );
 }
