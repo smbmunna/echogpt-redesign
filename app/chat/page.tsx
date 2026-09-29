@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Sidebar, { Conversation } from "../components/shared/sidebar";
 import EmptyChat, { AIModel } from "../components/EmptyChat";
-import EmptyState from "../components/EmptyState";
 
 export default function Page() {
   const [conversations, setConversations] = useState<Conversation[]>([
