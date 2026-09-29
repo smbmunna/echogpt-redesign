@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,6 +18,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased">
       <body className={`${inter.variable} min-h-full flex flex-col`}>{children}</body>
+      <Analytics />
     </html>
   );
 }
