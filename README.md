@@ -56,7 +56,8 @@ When auditing the reference site (echogpt.live), several product design and mark
 * **Feature-focused rather than benefit-driven:** Explaining raw model names and specifications instead of showing how much money or time users save.
 * **Static visual presentation:** Lacking motion, micro-interactions, or interactive preview elements, making the product feel flat and rigid.
 * **Information overload:** Presenting 40+ models in a wall of text or flat grid, causing cognitive friction for first-time visitors trying to evaluate the tool.
-* **Missing credibility signals:** Lacking social proof, customer feedback, and structured ROI breakdowns necessary for converting casual visitors into active users.
+* **Workspace & Layout Issues:** Lacked a flexible collapsible sidebar for chat history and navigation, forcing constant clutter in the primary workspace.
+* **Theme Support:** Missing a native, tokenized Dark/Light mode toggle, leading to rigid styling that couldn't adjust to user light preferences or system settings.
 
 **Redesign Strategy:**
 * **Outcome-first messaging:** Framed value propositions around concrete benefits like cutting monthly AI bills by 80% rather than just listing multi-model support.
@@ -64,17 +65,17 @@ When auditing the reference site (echogpt.live), several product design and mark
 * **Performance-first animations:** Used Framer Motion for smooth, hardware-accelerated spring animations, viewport-triggered entries, and pause-on-hover marquee loops.
 * **Design system consistency:** Enforced root CSS variables across all components to ensure predictable contrast ratios, dark mode fidelity, and easy global rebranding.
 
-### ✨ Enhancements Over echogpt.live
+## ✨ Enhancements Over `echogpt.live` (Chat App Web Interface)
 
-| Section / Feature | Original Site (echogpt.live) | Redesigned EchoGPT Build |
+| Web App UI / Feature Area | Original Web App (`echogpt.live`) | Redesigned EchoGPT Web Workspace |
 | :--- | :--- | :--- |
-| **Hero Section** | Standard text with static image | Interactive browser mock preview with live code block streaming simulation |
-| **Model Showcase** | Static text list | Infinite Marquee Strip using Framer Motion with model badges & pause-on-hover |
-| **Why Choose Us** | Bulleted list of technical features | 2x2 Benefit Grid with outcome metrics, highlight checklists, and callout banner |
-| **Social Proof** | Absent or minimal | 3-Card Testimonials Section featuring specific developer personas and ratings |
-| **Design Language** | Hardcoded Tailwind classes | Tokenized CSS System utilizing root custom properties (`var(--primary)`, `var(--surface)`, etc.) |
-| **Micro-Interactions** | Default browser states | Custom Framer Motion hover elevations, spring physics, and focus rings |
-| **Responsive Layout** | Basic mobile scaling | Tailored breakpoints for mobile, tablet, and desktop with adaptive UI drawer mocks |
+| **Workspace Layout & Navigation** | Fixed, static sidebar cluttering the primary canvas | **Collapsible Sidebar Drawer** with icon-rail collapse mode, chat history search, and thread pinning |
+| **Theme & Visual System** | Rigid single-mode theme without customization | **Tokenized Dark/Light Mode Switcher** powered by CSS root variables with smooth color transitions |
+| **Inline Model Switcher** | Fixed model selection per thread or static picker | **Dynamic Mid-Thread Model Selector** allowing model switches between replies without breaking conversation context |
+| **Smart Prompt Composer** | Fixed-height input field with basic text controls | **Auto-Resizing Composer** with multi-file drag-and-drop attachments, token usage indicators, and `Cmd/Ctrl + Enter` shortcuts |
+| **Code & Markdown Rendering** | Basic text formatting with plain code blocks | **Rich Syntax Highlighting** with 1-click code copying, streaming pulse animation, and formatted tables |
+|  |
+| **Mobile Web Experience** | Cluttered mobile view with overflowing sidebars | **Touch-Optimized Mobile UI** featuring slide-over bottom sheets, responsive message bubbles, and mobile gestures |
 
 ### 📁 Project Structure
 ```text
