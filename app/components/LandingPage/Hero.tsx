@@ -1,22 +1,11 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   Sparkles,
   ArrowRight,
   Star,
-  MessageSquare,
-  Bot,
-  Zap,
-  Code2,
-  Terminal,
-  Cpu,
-  Layers,
-  Paperclip,
-  ArrowUp,
-  Sliders,
-  CheckCircle2,
 } from "lucide-react";
 
 export default function HeroSection() {
@@ -30,59 +19,86 @@ export default function HeroSection() {
         
         {/* --- TOP: HEADLINE & CTAS --- */}
         <div className="max-w-4xl mx-auto text-center space-y-6">
+          
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--surface-elevated)] border border-[var(--border)] text-xs font-medium text-[var(--foreground)] shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--surface-elevated)] border border-[var(--border)] text-xs font-medium text-[var(--foreground)] shadow-sm"
+          >
             <Sparkles className="size-3.5 text-[var(--primary)]" />
             <span>Next-Gen Multi-Model AI Interface</span>
-          </div>
+          </motion.div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--foreground)] leading-[1.1]">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--foreground)] leading-[1.1]"
+          >
             Think faster. <br className="hidden sm:inline" />
             Build smarter with{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-purple-400 to-indigo-400">
               EchoGPT
             </span>
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-[var(--muted)] max-w-2xl mx-auto leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="text-base sm:text-lg text-[var(--muted)] max-w-2xl mx-auto leading-relaxed"
+          >
             Unify 40+ leading AI models — from DeepSeek V4 and GPT-5 to Qwen 3.8
             and Gemini — inside one clean, lightning-fast workspace.
-          </p>
+          </motion.p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-            <Link
-              href="/chat"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-semibold text-sm transition-all shadow-lg shadow-[var(--primary)]/25 active:scale-95 flex items-center justify-center gap-2"
-            >
-              <span>Start Free Trial</span>
-              <ArrowRight size={16} />
-            </Link>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2"
+          >
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+              <Link
+                href="/chat"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-semibold text-sm transition-all shadow-lg shadow-[var(--primary)]/25 flex items-center justify-center gap-2 group"
+              >
+                <span>Start Free Trial</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
 
-            <a
-              href="#demo"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[var(--surface-elevated)] hover:bg-[var(--surface)] text-[var(--foreground)] border border-[var(--border)] font-semibold text-sm transition-all flex items-center justify-center gap-2"
-            >
-              <span>View Interactive Demo</span>
-            </a>
-          </div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+              <a
+                href="#demo"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[var(--surface-elevated)] hover:bg-[var(--surface)] text-[var(--foreground)] border border-[var(--border)] font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm"
+              >
+                <span>View Interactive Demo</span>
+              </a>
+            </motion.div>
+          </motion.div>
 
           {/* Social Proof */}
-          <div className="pt-4 flex items-center justify-center gap-4 sm:gap-6 text-xs text-[var(--muted)]">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            className="pt-4 flex items-center justify-center gap-4 sm:gap-6 text-xs text-[var(--muted)]"
+          >
             <div className="flex items-center gap-1 text-amber-400">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={14} className="fill-amber-400" />
               ))}
             </div>
             <span>Trusted by 15,000+ developers & creators worldwide</span>
-          </div>
+          </motion.div>
+
         </div>
-
-       
-        
-
       </div>
     </section>
   );
