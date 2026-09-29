@@ -51,6 +51,12 @@ export default function ({ isDarkMode, setIsDarkMode }: NavbarProps) {
           >
             FAQ
           </a>
+          <Link
+            href="/extension"
+            className="hover:text-[var(--foreground)] transition-colors"
+          >
+            Try our Chrome Extension
+          </Link>
         </nav>
 
         {/* Action CTAs & Theme Toggle */}

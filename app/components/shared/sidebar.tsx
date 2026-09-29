@@ -5,6 +5,7 @@ import NewChatBtn from "../sidebar/NewChatBtn";
 import { PanelLeftClose, PanelLeftOpen, Plus, Search } from "lucide-react";
 import SidebarFooter from "../sidebar/SidebarFooter";
 import Conversation from "../sidebar/Conversation";
+import Logo from "./logo";
 
 // Define the conversation type
 export interface Conversation {
@@ -48,7 +49,7 @@ export default function Sidebar({
         {!isCollapsed && (
           <div className="flex items-center gap-2.5 px-1">
             <div className="w-7 h-7 rounded-lg bg-(--primary) flex items-center justify-center text-white font-bold text-sm shadow-sm">
-              E
+              <Logo/>
             </div>
             <span className="font-semibold tracking-tight text-base">
               EchoGPT

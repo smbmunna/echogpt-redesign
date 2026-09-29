@@ -62,32 +62,8 @@ export default function Page() {
         userEmail="smbmunna@gmail.com"
         onNewChat={handleNewChat}
       />
-      {/* <section className="flex-1 flex flex-col items-center justify-center p-6 text-center text-(--foreground)">
-        <div className="max-w-md space-y-3">
-          <h1 className="text-2xl font-bold tracking-tight">
-            Whats on your mind today?
-          </h1>
-          <p className="text-sm text-(--muted)">Your conversation goes here</p>
-        </div>
-      </section> */}
+      
       <section className="flex-1 h-full overflow-hidden flex flex-col">
-        {/* {!activeId ? (
-          <EmptyState
-            userName="Munna"
-            onSendMessage={handleSendMessage}
-          />
-        ) : (
-          <div className="flex-1 flex items-center justify-center text-[var(--muted)] text-sm">
-            Chat screen active for conversation ID: {activeId}
-          </div>
-        )} */}
-        {/* {
-          <EmptyState
-            userName="Munna"
-            onSendMessage={handleSendMessage}
-          />
-        }  */}
-
         <EmptyChat userName="Munna" onSendMessage={handleSendMessage} />
       </section>
     </main>
